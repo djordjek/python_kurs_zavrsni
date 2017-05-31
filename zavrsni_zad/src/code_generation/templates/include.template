@@ -1,0 +1,8 @@
+// generated using template: include.template
+//---------------------------------------------------------------------------------
+
+#include "block_functions.h"
+{% if user_functions_exist %}
+#include "{{user_function_name}}.h"
+{% endif %}
+ 

@@ -1,0 +1,22 @@
+// generated using template: main_block.template
+//---------------------------------------------------------------------------------
+
+
+int main(void)
+{
+	/* Local variables */
+    
+{% for node in nodes %}
+{% if nodes[node][2] != 'izlaz' %}
+	float {{nodes[node][0]}}_var = 0.0f;
+{% endif %}
+{% endfor %}
+
+	/* Function calls */
+    
+{% for statement in statements %}
+	{{statement}}
+{% endfor %}
+    
+	return 0;
+}

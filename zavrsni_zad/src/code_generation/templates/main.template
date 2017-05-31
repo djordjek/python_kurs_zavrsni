@@ -10,24 +10,7 @@
 **  Author: {{author}}
 **  Date:   {{date}}
 **********************************************************************************/
-#include "block_functions.h"
-#include "{{user_function_name}}.h"
 
-int main(void)
-{
-	/* Lokalne promenljive */
-    
-{% for node in nodes %}
-{% if nodes[node][2] != 'izlaz' %}
-	float {{nodes[node][0]}}_var = 0.0f;
-{% endif %}
-{% endfor %}
+{% include 'include.template' %}  
 
-	/* Pozivi funkcija */
-    
-{% for statement in statements %}
-	{{statement}}
-{% endfor %}
-    
-	return 0;
-}
+{% include 'main_block.template' %}

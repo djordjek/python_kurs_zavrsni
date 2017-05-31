@@ -53,9 +53,9 @@ float kosinus(float in);
 
 /*-----------------------------------------------------------------------------------*/
 /**
- * @brief   Funkcija \c sqrt implementira funkcionalnost za blok "kvkoren"
+ * @brief   Funkcija \c tanges implementira funkcionalnost za blok "tanges"
  */
-float kvkoren(float in);
+float tanges(float in);
 
 /*-----------------------------------------------------------------------------------*/
 /**

@@ -75,9 +75,9 @@ float kosinus(float in)
  * Fn: void sqrt(float in)
  * Implemnetacija bloka "kvkoren"
  *-----------------------------------------------------------------------------------*/
-float kvkoren(float in)
+float tanges(float in)
 {
-    float rez = sqrt(in);
+    float rez = tan(in);
     return rez;
 }
 
