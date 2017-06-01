@@ -1,7 +1,7 @@
 # this is a comment
 INCLUDE_DIR = ./common
 SRC= \
-	main.c\
+	main_user_functions.c\
 	./common/block_functions.c \
 	./user_function.c
 OBJ=$(SRC:.c=.o) # replaces the .c from SRC with .o
