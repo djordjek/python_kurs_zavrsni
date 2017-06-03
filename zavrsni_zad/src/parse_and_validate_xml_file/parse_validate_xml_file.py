@@ -10,6 +10,7 @@ class ParseXMLFile(object):
     def __init__(self, block_type):
         self.BLK_MAP = block_type
     
+    
     ##  @brief Open xml file, generate tree and close xml file   
     #
     # @param input_file Name of xml file
@@ -124,10 +125,8 @@ class ParseXMLFile(object):
  
         ## Diagram must have only one input block and more than one output block 
         inputs = 0
-        number_empty_prev_blocks = 0
         
         outputs = 0
-        number_empty_next_blocks = 0
 
         for node_name in data:
             data_value = data[node_name]
@@ -139,21 +138,13 @@ class ParseXMLFile(object):
             if(block_type == 'ulaz'):
                 inputs += 1
                 
-                
-            if(block_type == 'ulaz' and (len(prev_blocks) == 0)):
-                number_empty_prev_blocks += 1
-                
             if(block_type == 'izlaz'):
                 outputs += 1
-                
-            if(block_type == 'izlaz' and (len(next_blocks) == 0)):
-                number_empty_next_blocks += 1
-                
         
-        if (inputs > 1 or number_empty_prev_blocks > 1):
+        if (inputs > 1):
             raise CustomException("Detected more than one input block")
         
-        if (outputs == 0 or number_empty_next_blocks == 0):
+        if (outputs == 0):
             raise CustomException("Zero output blocks detected")
             
         
