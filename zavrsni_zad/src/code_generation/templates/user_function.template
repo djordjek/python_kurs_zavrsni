@@ -43,7 +43,7 @@
  * Implementacija bloka "korisnicka1"
  *-----------------------------------------------------------------------------------*/
  
-{% for func_name in users_functions %}
+{% for func_name in user_functions %}
 float {{func_name}}(float in)
 {
 	{{func_body}}

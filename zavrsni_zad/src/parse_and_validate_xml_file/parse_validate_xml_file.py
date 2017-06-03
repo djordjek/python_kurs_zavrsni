@@ -1,13 +1,19 @@
+## @package parse_validate_xml_file
+#  Parse and validate xml file
+
 from lxml import objectify
 
-from code_generation.exceptions import CustomException
+from utils.exceptions import CustomException
 
 class ParseXMLFile(object):
 
     def __init__(self, block_type):
         self.BLK_MAP = block_type
-
-    ## Open xml file, generate tree and close xml file    
+    
+    ##  @brief Open xml file, generate tree and close xml file   
+    #
+    # @param input_file Name of xml file
+    # @return tree, if parsing of xml file succeed, None otherwise 
     def generate_tree(self, input_file):
              
         try:      
@@ -19,11 +25,13 @@ class ParseXMLFile(object):
             return None
         
         
-    ## Generate dictionary from 'node' and 'edge' tags
-    def generate_dictionary(self, tree):
+    ##  @brief Generate dictionary from 'node' and 'edge' tags
+    #
+    # @param tree Object representation of xml file
+    # @return data Dictionary where each key represent one node from xml file. See following example:
+    """
+        Example:
         
-        
-        """
         n0: ['ulaz', 'undefined_function', 'ulaz', [], ['n1']]
         n1: ['blok_1', 'sinus', 'obrada', ['n0'], ['n2', 'n4', 'n3']]
         n2: ['blok_3', 'korisnicka1', 'obrada', ['n1'], ['n5']]
@@ -34,6 +42,7 @@ class ParseXMLFile(object):
         n7: ['izlaz_1', 'undefined_function', 'izlaz', ['n3'], []]
 
         """
+    def parse_xml_file_and_generate_dictionary(self, tree):
  
         ## Get root tag in xml file
         root = tree.getroot()
@@ -107,7 +116,10 @@ class ParseXMLFile(object):
             
         return data    
     
-    ## Validate diagram         
+    ##  @brief Validate diagram
+    #
+    # @param data Dictionary which represent structure of diagram
+    # @return True, xml file is valid, otherwise CustomException       
     def validate_xml_file(self, data): 
  
         ## Diagram must have only one input block and more than one output block 

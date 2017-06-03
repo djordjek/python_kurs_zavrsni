@@ -36,7 +36,7 @@ extern "C"
 /*-----------------------------------------------------------------------------------*/
 
 
-{% for func_name in users_functions %}
+{% for func_name in user_functions %}
 float {{func_name}}(float in);
 {% endfor %}
 

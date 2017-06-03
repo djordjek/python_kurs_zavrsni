@@ -1,9 +1,11 @@
+## @package test_parsing_xml
+#  Test methods for parsing xml file
 
 import unittest
 
-from code_generation.parse_xml_file import ParseXMLFile
-from code_generation.settings import RESOURCES
-from code_generation.exceptions import CustomException
+from parse_and_validate_xml_file.parse_validate_xml_file import ParseXMLFile
+from utils.settings import RESOURCES
+from utils.exceptions import CustomException
 
 class TestParseXML(unittest.TestCase):
 
@@ -30,7 +32,7 @@ class TestParseXML(unittest.TestCase):
                 'n7': ['izlaz_1',None, 'izlaz', ['n3'], []]}
         
         tree = self.parse_xml.generate_tree(RESOURCES + 'zadatak.graphml')
-        self.assertEqual(self.parse_xml.generate_dictionary(tree), data, "Generated dictionary is valid")
+        self.assertEqual(self.parse_xml.parse_xml_file_and_generate_dictionary(tree), data, "Generated dictionary is valid")
         
     
     def test_invalid_input_generate_dictionary(self):  
@@ -45,7 +47,7 @@ class TestParseXML(unittest.TestCase):
                 'n7': ['izlaz_1',None, 'izlaz', ['n3'], []]}
         
         tree = self.parse_xml.generate_tree(RESOURCES + 'zadatak.graphml')
-        self.assertNotEqual(self.parse_xml.generate_dictionary(tree), data, "Generated dictionary is not valid")
+        self.assertNotEqual(self.parse_xml.parse_xml_file_and_generate_dictionary(tree), data, "Generated dictionary is not valid")
   
         
     def test_validate_xml_file(self):
